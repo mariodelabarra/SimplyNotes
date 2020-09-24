@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SimplyNotes.DataAccess;
+using SimplyNotes.UnitOfWork;
 
 namespace SimplyNotes.WebAPI
 {
@@ -25,6 +27,9 @@ namespace SimplyNotes.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IUnitOfWork>(option => new SimplyNotesUnitOfWork(
+                Configuration.GetConnectionString("SimplyNotes")
+                ));
             services.AddControllers();
         }
 
