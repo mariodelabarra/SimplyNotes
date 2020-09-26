@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SimplyNotes.Models;
 using SimplyNotes.UnitOfWork;
@@ -9,6 +10,7 @@ using SimplyNotes.UnitOfWork;
 namespace SimplyNotes.WebAPI.Controllers
 {
     [Route("api/Note")]
+    [Authorize]
     public class NoteController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
