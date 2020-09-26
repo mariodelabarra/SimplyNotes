@@ -9,8 +9,10 @@ namespace SimplyNotes.DataAccess
         {
             Note = new NoteRepository(connectionString);
             List = new ListRepository(connectionString);
+            User = new UserRepository(connectionString);
         }
         public INoteRepository Note { get; private set; }
-        public IListRepository List { get; set; }
+        public IListRepository List { get; private set; }
+        public IUserRepository User { get; private set; }
     }
 }
