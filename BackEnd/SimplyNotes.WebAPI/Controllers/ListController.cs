@@ -30,6 +30,7 @@ namespace SimplyNotes.WebAPI.Controllers
         [Route("GetPaginatedList/{page:int}/{rows:int}")]
         public IActionResult GetPaginatedList(int page, int rows)
         {
+            throw new System.Exception("SimplyNotes Error");
             return Ok(_unitOfWork.List.GetPaginatedList(page, rows));
         }
 

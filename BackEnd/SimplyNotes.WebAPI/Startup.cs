@@ -15,6 +15,7 @@ using Microsoft.Extensions.Logging;
 using SimplyNotes.DataAccess;
 using SimplyNotes.UnitOfWork;
 using SimplyNotes.WebAPI.Authentication;
+using SimplyNotes.WebAPI.GlobalErrorHandling;
 
 namespace SimplyNotes.WebAPI
 {
@@ -62,6 +63,8 @@ namespace SimplyNotes.WebAPI
             }
 
             app.UseAuthentication(); // It will use authentication
+
+            app.ConfigureExceptionHandler();
 
             app.UseHttpsRedirection();
 
