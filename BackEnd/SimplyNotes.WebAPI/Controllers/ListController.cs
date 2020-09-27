@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SimplyNotes.Models;
 using SimplyNotes.UnitOfWork;
 using System;
@@ -8,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace SimplyNotes.WebAPI.Controllers
 {
-    [Route("api/List")]
+    [Route("api/list")]
+    [Authorize]
     public class ListController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -28,6 +30,7 @@ namespace SimplyNotes.WebAPI.Controllers
         [Route("GetPaginatedList/{page:int}/{rows:int}")]
         public IActionResult GetPaginatedList(int page, int rows)
         {
+            throw new System.Exception("SimplyNotes Error");
             return Ok(_unitOfWork.List.GetPaginatedList(page, rows));
         }
 
