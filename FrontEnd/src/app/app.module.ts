@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './components/shared/shared.module';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -10,6 +12,9 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
+    NoopAnimationsModule,
+    SharedModule,
+    MaterialModule
     NoopAnimationsModule
   ],
   providers: [],
