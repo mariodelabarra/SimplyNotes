@@ -15,6 +15,7 @@ import { MaterialModule } from './material.module';
     NoopAnimationsModule,
     SharedModule,
     MaterialModule
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
