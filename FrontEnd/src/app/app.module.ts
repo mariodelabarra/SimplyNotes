@@ -14,7 +14,7 @@ import { MaterialModule } from './material.module';
     BrowserModule,
     NoopAnimationsModule,
     SharedModule,
-    MaterialModule
+    MaterialModule,
     NoopAnimationsModule
   ],
   providers: [],
