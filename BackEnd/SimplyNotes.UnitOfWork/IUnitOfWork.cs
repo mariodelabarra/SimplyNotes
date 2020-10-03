@@ -6,5 +6,6 @@ namespace SimplyNotes.UnitOfWork
     {
         INoteRepository Note { get; }
         IListRepository List { get; }
+        IBoardRepository Board { get; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SimplyNotes.BusinessLogic.Interfaces;
 using SimplyNotes.Models;
 using SimplyNotes.UnitOfWork;
 using System;
@@ -11,37 +12,37 @@ namespace SimplyNotes.WebAPI.Controllers
     [Route("api/List")]
     public class ListController : Controller
     {
-        private readonly IUnitOfWork _unitOfWork;
-        public ListController(IUnitOfWork unitOfWork)
+        private readonly IListLogic _logic;
+        public ListController(IListLogic logic)
         {
-            _unitOfWork = unitOfWork;
+            _logic = logic;
         }
 
         [HttpGet]
         [Route("{id:int}")]
         public IActionResult GetById(int id)
         {
-            return Ok(_unitOfWork.List.GetById(id));
+            return Ok(_logic.GetById(id));
         }
 
         [HttpGet]
         [Route("GetPaginatedList/{page:int}/{rows:int}")]
         public IActionResult GetPaginatedList(int page, int rows)
         {
-            return Ok(_unitOfWork.List.GetPaginatedList(page, rows));
+            return Ok(_logic.GetPaginatedList(page, rows));
         }
 
         [HttpPost]
         public IActionResult Post([FromBody] List list)
         {
             if (!ModelState.IsValid) return BadRequest();
-            return Ok(_unitOfWork.List.Insert(list));
+            return Ok(_logic.Insert(list));
         }
 
         [HttpPut]
         public IActionResult Put([FromBody] List list)
         {
-            if(ModelState.IsValid && _unitOfWork.List.Update(list))
+            if(ModelState.IsValid && _logic.Update(list))
             {
                 return Ok(new { Message = "The List is Updated" });
             }
@@ -52,7 +53,7 @@ namespace SimplyNotes.WebAPI.Controllers
         public IActionResult Delete([FromBody] List list)
         {
             if (list.Id > 0)
-                return Ok(_unitOfWork.List.Delete(list));
+                return Ok(_logic.Delete(list));
             return BadRequest();
         }
 

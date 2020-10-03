@@ -1,40 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using SimplyNotes.BusinessLogic.Interfaces;
 using SimplyNotes.Models;
-using SimplyNotes.UnitOfWork;
 
 namespace SimplyNotes.WebAPI.Controllers
 {
     [Route("api/Note")]
     public class NoteController : Controller
     {
-        private readonly IUnitOfWork _unitOfWork;
-        public NoteController(IUnitOfWork unitOfWork)
+        private readonly INoteLogic _logic;
+        public NoteController(INoteLogic logic)
         {
-            _unitOfWork = unitOfWork;
+            _logic = logic;
         }
 
         [HttpGet]
         [Route("{id:int}")]
         public IActionResult GetById(int id)
         {
-            return Ok(_unitOfWork.Note.GetById(id));
+            return Ok(_logic.GetById(id));
         }
 
         [HttpPost]
         public IActionResult Post([FromBody] Note note)
         {
             if (!ModelState.IsValid) return BadRequest();
-            return Ok(_unitOfWork.Note.Insert(note));
+            return Ok(_logic.Insert(note));
         }
 
         [HttpPut]
         public IActionResult Put([FromBody] Note note)
         {
-            if(ModelState.IsValid && _unitOfWork.Note.Update(note))
+            if(ModelState.IsValid && _logic.Update(note))
             {
                 return Ok(new { Message = "The Note is Updated" });
             }
@@ -45,7 +41,7 @@ namespace SimplyNotes.WebAPI.Controllers
         public IActionResult Delete([FromBody] Note note)
         {
             if (note.Id > 0)
-                return Ok(_unitOfWork.Note.Delete(note));
+                return Ok(_logic.Delete(note));
             return BadRequest();
         }
 
