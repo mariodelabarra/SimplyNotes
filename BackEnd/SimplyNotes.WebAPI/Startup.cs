@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,6 +14,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SimplyNotes.DataAccess;
 using SimplyNotes.UnitOfWork;
+using SimplyNotes.WebAPI.Authentication;
+using SimplyNotes.WebAPI.GlobalErrorHandling;
 
 namespace SimplyNotes.WebAPI
 {
@@ -30,6 +34,23 @@ namespace SimplyNotes.WebAPI
             services.AddSingleton<IUnitOfWork>(option => new SimplyNotesUnitOfWork(
                 Configuration.GetConnectionString("SimplyNotes")
                 ));
+
+            var tokenProvider = new JwtProvider("issuer", "audience", "simplynotes_2000");
+            services.AddSingleton<ITokenProvider>(tokenProvider);
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme) // This is how specify to the API that It will work with JWT
+                .AddJwtBearer(options => 
+                {
+                    options.RequireHttpsMetadata = false;
+                    options.TokenValidationParameters = tokenProvider.GetValidationParameters(); // Validate that the TOKEN that is sent from the client it is valid
+                });
+            services.AddAuthorization(auth => // We specify to the Framework that It will work with Authorization
+            {
+                auth.DefaultPolicy = new AuthorizationPolicyBuilder()
+                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+                    .RequireAuthenticatedUser()
+                    .Build();
+            });
             services.AddControllers();
         }
 
@@ -40,6 +61,10 @@ namespace SimplyNotes.WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseAuthentication(); // It will use authentication
+
+            app.ConfigureExceptionHandler();
 
             app.UseHttpsRedirection();
 
