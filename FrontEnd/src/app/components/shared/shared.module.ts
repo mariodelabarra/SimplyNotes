@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AngularMaterialModule } from 'src/app/angular-material.module';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
-  declarations: [NavBarComponent, SideNavComponent],
+  declarations: [SideNavComponent],
   imports: [
     CommonModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    RouterModule
   ],
   exports: [
-    NavBarComponent,
     SideNavComponent
   ]
 })
