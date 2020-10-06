@@ -3,8 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModule } from './components/shared/shared.module';
+
+//Angular Material Module
 import { MaterialModule } from './material.module';
+
+//Components Module
+import { SharedModule } from './components/shared/shared.module';
+import { LoginRegisterModule } from "./components/login_register/login_register.module";
+
 
 @NgModule({
   declarations: [
@@ -13,9 +19,9 @@ import { MaterialModule } from './material.module';
   imports: [
     BrowserModule,
     NoopAnimationsModule,
+    MaterialModule,
     SharedModule,
-    MaterialModule
-    NoopAnimationsModule
+    LoginRegisterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
