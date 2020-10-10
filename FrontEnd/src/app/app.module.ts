@@ -12,12 +12,21 @@ import { LayoutModule } from '@angular/cdk/layout';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+//Angular Material Module
+import { MaterialModule } from './material.module';
+
+//Components Module
+import { SharedModule } from './components/shared/shared.module';
+import { LoginRegisterModule } from "./components/login_register/login_register.module";
+
+
 @NgModule({
   declarations: [
     AppComponent  
   ],
   imports: [
     BrowserModule,
+    LoginRegisterModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
     AppRoutingModule,
