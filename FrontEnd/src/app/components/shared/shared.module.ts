@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { MaterialModule } from 'src/app/material.module';
+import { AngularMaterialModule } from 'src/app/angular-material.module';
+import { SideNavComponent } from './side-nav/side-nav.component';
+import { RouterModule } from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
 @NgModule({
-  declarations: [NavBarComponent],
+  declarations: [SideNavComponent, NotFoundComponent],
   imports: [
     CommonModule,
-    MaterialModule
+    AngularMaterialModule,
+    RouterModule
   ],
-  exports:[
-    NavBarComponent
+  exports: [
+    SideNavComponent
   ]
 })
 export class SharedModule { }
