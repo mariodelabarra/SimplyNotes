@@ -25,6 +25,7 @@ import { LoginRegisterModule } from "./components/login_register/login_register.
   ],
   imports: [
     BrowserModule,
+    LoginRegisterModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
     AppRoutingModule,
