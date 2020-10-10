@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { BoardListComponent } from './board-list/board-list.component';
+import { BoardComponent } from './board/board.component';
 
 const boardRoutes: Routes = [
-  { path: '', children: [ { path: '', component: BoardListComponent } ]}
+  { path: '', children: [{ path: '', component: BoardComponent }]}
 ];
 
 @NgModule({
