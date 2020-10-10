@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
-import { SharedModule } from './components/shared/shared.module';
 import { BoardModule } from './components/board/board.module';
 import { HomeModule } from './components/home/home.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,16 +25,15 @@ import { LoginRegisterModule } from "./components/login_register/login_register.
   ],
   imports: [
     BrowserModule,
-    LoginRegisterModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
     AppRoutingModule,
     SharedModule,
     HomeModule,
     BoardModule,
+    LoginRegisterModule,
     LayoutModule,
-    ReactiveFormsModule,
-    FormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

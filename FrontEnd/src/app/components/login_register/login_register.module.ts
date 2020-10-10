@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
+import { LoginRegisterRoutingModule } from './login-register-routing.module';
+import { AngularMaterialModule } from 'src/app/angular-material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,6 +16,10 @@ import { RegisterComponent } from "./register/register.component";
   ],
   imports: [
     CommonModule,
+    LoginRegisterRoutingModule,
+    AngularMaterialModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports:[
     LoginComponent,

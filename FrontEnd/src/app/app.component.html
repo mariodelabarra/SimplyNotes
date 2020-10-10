@@ -1,4 +1,5 @@
-
-<app-side-nav >
+<app-side-nav *ngIf="_displayLogin">
     <router-outlet></router-outlet>
 </app-side-nav>
+
+<router-outlet *ngIf="!_displayLogin"></router-outlet>
