@@ -7,6 +7,5 @@ namespace SimplyNotes.Repositories
 {
     public interface IBoardRepository: IRepository<Board>
     {
-
     }
 }

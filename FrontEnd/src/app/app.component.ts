@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FrontEnd';
+
+  _displayLogin = false;
+
+  get displayMenu() {
+    return this._displayLogin;
+  }
 }

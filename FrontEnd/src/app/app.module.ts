@@ -2,7 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './angular-material.module';
+import { SharedModule } from './components/shared/shared.module';
+import { BoardModule } from './components/board/board.module';
+import { HomeModule } from './components/home/home.module';
+import { AppRoutingModule } from './app-routing.module';
+import { LayoutModule } from '@angular/cdk/layout';
+
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 //Angular Material Module
 import { MaterialModule } from './material.module';
@@ -14,14 +22,20 @@ import { LoginRegisterModule } from "./components/login_register/login_register.
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent  
   ],
   imports: [
     BrowserModule,
-    NoopAnimationsModule,
-    MaterialModule,
+    LoginRegisterModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule,
+    AppRoutingModule,
     SharedModule,
-    LoginRegisterModule
+    HomeModule,
+    BoardModule,
+    LayoutModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

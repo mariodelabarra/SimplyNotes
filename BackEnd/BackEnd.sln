@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyNotes.WebAPI", "SimplyNotes.WebAPI\SimplyNotes.WebAPI.csproj", "{B75A6068-F11C-45AE-BCB0-ECAE0EE5691D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplyNotes.WebAPI", "SimplyNotes.WebAPI\SimplyNotes.WebAPI.csproj", "{B75A6068-F11C-45AE-BCB0-ECAE0EE5691D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{C26F0870-0E79-40E9-AC1A-87B184B811B7}"
 EndProject
@@ -11,13 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A6DA1103-3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{93B57029-A429-4B7D-88A6-2566B02F8524}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyNotes.Models", "SimplyNotes.Models\SimplyNotes.Models.csproj", "{6443BCA5-1AA6-4796-984E-E6294CA8E63D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplyNotes.Models", "SimplyNotes.Models\SimplyNotes.Models.csproj", "{6443BCA5-1AA6-4796-984E-E6294CA8E63D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyNotes.UnitOfWork", "SimplyNotes.UnitOfWork\SimplyNotes.UnitOfWork.csproj", "{BA7B0D57-2050-40BA-B032-92DFA36FFF4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplyNotes.UnitOfWork", "SimplyNotes.UnitOfWork\SimplyNotes.UnitOfWork.csproj", "{BA7B0D57-2050-40BA-B032-92DFA36FFF4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyNotes.DataAccess", "SimplyNotes.DataAccess\SimplyNotes.DataAccess.csproj", "{B8F006AE-041F-4C64-A224-341FBFDE200E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplyNotes.DataAccess", "SimplyNotes.DataAccess\SimplyNotes.DataAccess.csproj", "{B8F006AE-041F-4C64-A224-341FBFDE200E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyNotes.Repositories", "SimplyNotes.Repositories\SimplyNotes.Repositories.csproj", "{2EBBC345-6480-44CE-AE80-02E1EDB88F4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplyNotes.Repositories", "SimplyNotes.Repositories\SimplyNotes.Repositories.csproj", "{2EBBC345-6480-44CE-AE80-02E1EDB88F4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyNotes.BusinessLogic", "SimplyNotes.BusinessLogic\SimplyNotes.BusinessLogic.csproj", "{AA14D13C-D676-45E3-B524-F3748AFF983C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{2EBBC345-6480-44CE-AE80-02E1EDB88F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EBBC345-6480-44CE-AE80-02E1EDB88F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EBBC345-6480-44CE-AE80-02E1EDB88F4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA14D13C-D676-45E3-B524-F3748AFF983C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA14D13C-D676-45E3-B524-F3748AFF983C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA14D13C-D676-45E3-B524-F3748AFF983C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA14D13C-D676-45E3-B524-F3748AFF983C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +60,7 @@ Global
 		{BA7B0D57-2050-40BA-B032-92DFA36FFF4D} = {93B57029-A429-4B7D-88A6-2566B02F8524}
 		{B8F006AE-041F-4C64-A224-341FBFDE200E} = {93B57029-A429-4B7D-88A6-2566B02F8524}
 		{2EBBC345-6480-44CE-AE80-02E1EDB88F4A} = {93B57029-A429-4B7D-88A6-2566B02F8524}
+		{AA14D13C-D676-45E3-B524-F3748AFF983C} = {93B57029-A429-4B7D-88A6-2566B02F8524}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D52A9CB5-A352-4A41-9093-09E116159596}
