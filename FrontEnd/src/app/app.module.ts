@@ -17,6 +17,8 @@ import { MaterialModule } from './material.module';
 //Components Module
 import { SharedModule } from './components/shared/shared.module';
 import { LoginRegisterModule } from "./components/login_register/login_register.module";
+import { AuthService } from './services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import { LoginRegisterModule } from "./components/login_register/login_register.
     BrowserModule,
     LoginRegisterModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AngularMaterialModule,
     AppRoutingModule,
     SharedModule,
@@ -36,7 +39,7 @@ import { LoginRegisterModule } from "./components/login_register/login_register.
     LayoutModule,
     
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

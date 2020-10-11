@@ -21,7 +21,7 @@ export class BoardListComponent implements OnInit {
   }
 
   getAllBoard(userId: number, page: number, rows: number): void {
-    this.boardService.getAllBoard(userId, page, rows).subscribe(
+    this.boardService.getAllBoard(userId, page, rows).subscribe( 
       response => {
         this.board = response;
       }

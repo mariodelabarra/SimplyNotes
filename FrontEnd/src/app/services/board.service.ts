@@ -13,7 +13,7 @@ export class BoardService {
 
   getAllBoard(userId: number, page: number, rows: number): Observable<Board[]> {
     debugger;
-    return this.http.get<Board[]>(`${environment.urlService}/board/${userId}`);
+    return this.http.get<Board[]>(`${environment.urlService}/board/GetAllBoard/${userId}/${page}/${rows}`);
   }
 
 }
