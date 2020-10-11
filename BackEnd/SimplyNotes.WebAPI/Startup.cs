@@ -51,6 +51,7 @@ namespace SimplyNotes.WebAPI
                     .RequireAuthenticatedUser()
                     .Build();
             });
+            services.AddCors();
             services.AddControllers();
         }
 
@@ -61,6 +62,8 @@ namespace SimplyNotes.WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
             app.UseAuthentication(); // It will use authentication
 

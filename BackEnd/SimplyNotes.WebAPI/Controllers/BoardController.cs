@@ -27,6 +27,13 @@ namespace SimplyNotes.WebAPI.Controllers
             return Ok(_unitOfWork.Board.GetById(id));
         }
 
+        [HttpGet]
+        [Route("GetAllBoard/{userId:int}/{page:int}/{rows:int}")]
+        public IActionResult GetAllBoard(int userId, int page, int rows)
+        {
+            return Ok(_unitOfWork.Board.GetAllBoard(userId, page, rows));
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody] Board board)
         {

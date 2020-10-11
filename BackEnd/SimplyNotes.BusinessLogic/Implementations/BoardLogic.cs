@@ -24,6 +24,11 @@ namespace SimplyNotes.BusinessLogic.Implementations
             return _unitOfWork.Board.GetById(id);
         }
 
+        public IEnumerable<Board> GetAllBoard(int userId, int page, int rows)
+        {
+            return _unitOfWork.Board.GetAllBoard(userId, page, rows);
+        }
+
         public int Insert(Board board)
         {
             return _unitOfWork.Board.Insert(board);

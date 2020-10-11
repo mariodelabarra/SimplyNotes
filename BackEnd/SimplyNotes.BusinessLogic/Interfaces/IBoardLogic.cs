@@ -8,6 +8,7 @@ namespace SimplyNotes.BusinessLogic.Interfaces
     public interface IBoardLogic
     {
         Board GetById(int id);
+        IEnumerable<Board> GetAllBoard(int userId, int page, int rows);
         int Insert(Board board);
         bool Update(Board board);
         bool Delete(Board board);

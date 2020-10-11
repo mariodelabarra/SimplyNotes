@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SimplyNotes.BusinessLogic\SimplyNotes.BusinessLogic.csproj" />
     <ProjectReference Include="..\SimplyNotes.DataAccess\SimplyNotes.DataAccess.csproj" />
     <ProjectReference Include="..\SimplyNotes.UnitOfWork\SimplyNotes.UnitOfWork.csproj" />
   </ItemGroup>

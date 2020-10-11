@@ -7,5 +7,6 @@ namespace SimplyNotes.Repositories
 {
     public interface IBoardRepository: IRepository<Board>
     {
+        IEnumerable<Board> GetAllBoard(int userId, int page, int rows);
     }
 }
