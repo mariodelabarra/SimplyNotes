@@ -10,9 +10,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 @NgModule({
   declarations: [SideNavComponent, NotFoundComponent],
   imports: [
+    RouterModule,
     CommonModule,
     AngularMaterialModule,
-    RouterModule
   ],
   exports: [
     SideNavComponent

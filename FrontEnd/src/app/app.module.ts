@@ -2,36 +2,39 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+//Angular Material
 import { AngularMaterialModule } from './angular-material.module';
-import { BoardModule } from './components/board/board.module';
-import { HomeModule } from './components/home/home.module';
-import { AppRoutingModule } from './app-routing.module';
-import { LayoutModule } from '@angular/cdk/layout';
-
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
-//Angular Material Module
-import { MaterialModule } from './material.module';
 
 //Components Module
 import { SharedModule } from './components/shared/shared.module';
 import { LoginRegisterModule } from "./components/login_register/login_register.module";
-import { AuthService } from './services/auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BoardModule } from './components/board/board.module';
+import { HomeModule } from './components/home/home.module';
+import { AppRoutingModule } from './app-routing.module';
+import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+// Service
+import { AuthService } from './services/auth.service';
+import { LogoutComponent } from './components/logout/logout.component';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent  
+    AppComponent,
+    LogoutComponent  
   ],
   imports: [
     BrowserModule,
-    LoginRegisterModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AngularMaterialModule,
-    AppRoutingModule,
     SharedModule,
     HomeModule,
     BoardModule,

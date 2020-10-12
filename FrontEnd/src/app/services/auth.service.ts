@@ -6,11 +6,12 @@ import { environment } from '../../environments/environment';
 import { catchError, map } from 'rxjs/operators';
 import * as jwt_decode from 'jwt-decode';
 import { transformError } from '../common/common';
+import { CacheService } from './cache.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService extends CacheService {
   //Instalamos a traves de npm la dependencias para poder decodificar el token (jwt-decode y npm install -D @types/jwt-decode)
 
   private readonly authProvider: (email: string, password: string) => Observable<IServerAuthResponse>;
@@ -19,6 +20,10 @@ export class AuthService {
   //Esto es porque se utilizara el authStatus en otros componentes
 
   constructor(private httpClient: HttpClient) {
+    super(); //Esto es porque en el ctor padre esta vacio y no es necesario definir
+    this.authStatus.subscribe(authStatus => { //Cada vez que el authStatus cambie de valor tambien se seteara en el localStorage
+      this.setItem('authStatus', authStatus);
+    })
     this.authProvider = this.userAuthProvider;
    }
 
@@ -30,7 +35,7 @@ export class AuthService {
     this.logout(); //Se ejecuta el logout para verificar que no haya ninguna sesion iniciada
     const loginResponse = this.authProvider(email, password).pipe( //Llamamos a la variable authProvider que invoca el metodo userAuthProvider
       map(value => { //Con el metodo map recorremos el resultado
-
+         this.setToken(value.access_Token);// Seteo el token en el localStorage
          const result = jwt_decode(value.access_Token);//Decodifico el valor del token
          return result as IAuthStatus;
 
@@ -52,7 +57,20 @@ export class AuthService {
   }
 
   logout() {
+    this.clearToken();
     this.authStatus.next(defaultAuthStatus); //Se establecen los valores por defecto al hacer el logout
+  }
+
+  private setToken(jwt: string) {
+    this.setItem('jwt', jwt);
+  }
+
+  getToken(): string {
+    return this.getItem('jwt') || '';
+  }
+
+  private clearToken() {
+    this.removeItem('jwt');
   }
 
 }

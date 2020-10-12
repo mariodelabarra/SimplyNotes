@@ -62,7 +62,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   transform: rotate(32deg);
 }
  #login form {
-  width: 70%;
+  width: 80%;
   margin: 30px auto;
   text-align: center;
 }
