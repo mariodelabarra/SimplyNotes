@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginRegisterModule } from './components/login-register/login-register.module';
+import { SidenavComponent } from './components/sidenav/sidenav/sidenav.component';
 import { HomeModule } from './components/home/home.module';
 import { BoardModule } from './components/board/board.module';
-import { NotFoundComponent } from './components/shared/not-found/not-found.component';
-import { LoginRegisterModule } from './components/login_register/login_register.module';
-import { LogoutComponent } from './components/logout/logout.component';
+import { LogoutComponent } from './components/login-register/logout/logout.component';
+import { AuthGuard } from './guards/auth.guard';
+
 
 const routes: Routes = [
-  { path: 'home', loadChildren: () => HomeModule },
-  { path: 'board', loadChildren: () => BoardModule },
-  { path: 'logout', component: LogoutComponent},
-  { path: '', loadChildren: () => LoginRegisterModule },
-  { path: '**', component: NotFoundComponent}
+  {path: '', loadChildren: () => LoginRegisterModule},
+  {path: 'dashboard', component: SidenavComponent, children: [
+    {path: 'home', loadChildren: () => HomeModule, canLoad: [AuthGuard]},
+    {path: 'board', loadChildren: () => BoardModule, canLoad: [AuthGuard]},
+    {path: 'logout', component: LogoutComponent, canLoad: [AuthGuard]},
+    {path: '', redirectTo: 'home', pathMatch: 'full'}
+  ]}
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
-  exports: [RouterModule],
-  declarations: []
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

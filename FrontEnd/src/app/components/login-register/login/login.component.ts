@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   hide = true;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService ) { }
 
   ngOnInit(): void {
     this.buildLoginForm();
@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
   login(submittedForm: FormGroup) {
     this.authService.login(submittedForm.value.email, submittedForm.value.password).
         subscribe(authResponse => {
-          this.router.navigate(['/home']);
+          debugger;
+          this.router.navigate(['dashboard/home']);
         }, error => this.loginError = error);
   }
 

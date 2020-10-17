@@ -9,3 +9,4 @@ export class User {
     DateCreate: Date;
     BirthDay: Date;
 }
+

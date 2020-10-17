@@ -1,48 +1,42 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
-
-
-//Angular Material
-import { AngularMaterialModule } from './angular-material.module';
-
-//Components Module
-import { SharedModule } from './components/shared/shared.module';
-import { LoginRegisterModule } from "./components/login_register/login_register.module";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BoardModule } from './components/board/board.module';
-import { HomeModule } from './components/home/home.module';
 import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+//Modulos de Componentes
+import { AngularMaterialModule } from '../app/angular-material.module';
+import { LoginRegisterModule } from './components/login-register/login-register.module';
+import { HomeModule } from './components/home/home.module';
+import { BoardModule } from './components/board/board.module';
+import { SidenavModule } from './components/sidenav/sidenav.module';
 import { LayoutModule } from '@angular/cdk/layout';
+
+//HTTP
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-// Service
+//Auth
 import { AuthService } from './services/auth.service';
-import { LogoutComponent } from './components/logout/logout.component';
-
-
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LogoutComponent  
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule,
     AngularMaterialModule,
-    SharedModule,
+    HttpClientModule,
+    LoginRegisterModule,
     HomeModule,
     BoardModule,
-    LoginRegisterModule,
-    LayoutModule,
-    
+    SidenavModule,
+    LayoutModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
