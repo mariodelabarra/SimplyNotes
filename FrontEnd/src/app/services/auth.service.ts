@@ -36,7 +36,6 @@ export class AuthService extends CacheService {
    const loginResponse = this.authProvider(email, password).pipe( //Llamamos a la variable authProvider que invoca el metodo userAuthProvider
      map(value => { //Con el metodo map recorremos el resultado
         this.setToken(value.access_Token);// Seteo el token en el localStorage
-        debugger;
         const result = jwt_decode(value.access_Token);//Decodifico el valor del token
         return result as IAuthStatus;
 
@@ -72,6 +71,10 @@ export class AuthService extends CacheService {
 
  private clearToken() {
    this.removeItem('jwt');
+ }
+
+ getAuthStatus(): IAuthStatus {
+   return this.getItem('authStatus');
  }
 
 }

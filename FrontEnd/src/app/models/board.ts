@@ -1,10 +1,10 @@
 import { User } from "./user";
 
 export class Board {
-    Id: number;
-    Name: string;
-    Description: string;
-    DateCreate: Date;
-    UserId: number;
-    UserList: User;
+    id: number;
+    name: string;
+    description: string;
+    dateCreate: Date;
+    userId: number;
+    userList: User;
 }

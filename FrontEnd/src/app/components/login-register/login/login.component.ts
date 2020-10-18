@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
   login(submittedForm: FormGroup) {
     this.authService.login(submittedForm.value.email, submittedForm.value.password).
         subscribe(authResponse => {
-          debugger;
           this.router.navigate(['dashboard/home']);
         }, error => this.loginError = error);
   }

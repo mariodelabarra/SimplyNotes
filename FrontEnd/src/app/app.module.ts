@@ -14,7 +14,8 @@ import { SidenavModule } from './components/sidenav/sidenav.module';
 import { LayoutModule } from '@angular/cdk/layout';
 
 //HTTP
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthHttpInterceptor } from './auth/AuthHttpInterceptor';
 
 //Auth
 import { AuthService } from './services/auth.service';
@@ -36,7 +37,12 @@ import { AuthGuard } from './guards/auth.guard';
     SidenavModule,
     LayoutModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHttpInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

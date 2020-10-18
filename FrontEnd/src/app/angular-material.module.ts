@@ -8,8 +8,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
-
-
+import {MatRippleModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -22,7 +21,8 @@ import { MatInputModule } from '@angular/material/input';
     MatSidenavModule,
     MatListModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    MatRippleModule
   ],
   exports: [
     MatToolbarModule,
@@ -32,7 +32,8 @@ import { MatInputModule } from '@angular/material/input';
     MatSidenavModule,
     MatListModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    MatRippleModule
   ]
 })
 export class AngularMaterialModule { }

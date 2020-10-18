@@ -1,0 +1,42 @@
+.board-container{
+    display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  max-height: 100%;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+.example-ripple-container {
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    margin-left: 3em;
+    width: 100px;
+    height: 80px;
+    line-height: 100px;
+    border-radius: 1em;
+    background-color: #3f51b5;
+    color: white;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: transparent;
+
+    transition: all 0.3s;
+}
+
+.example-ripple-container:hover {
+    width: 110px;
+    height: 90px;
+    transition: all 0.3s;
+}
+  
+  /** Styles to make the demo look better. */
+  
+  .example-ripple-form-field {
+    margin: 0 12px 0 0;
+  }
