@@ -4,9 +4,9 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'">
     <mat-toolbar><p>Menu</p></mat-toolbar>
     <mat-nav-list color="primary">
-      <a mat-list-item routerLink="home" >Home</a>
-      <a mat-list-item routerLink="board" >Board</a>
-      <a mat-list-item routerLink="logout">Logout</a>
+      <a mat-list-item routerLink="home" routerLinkActive="active-link">Home <span class="sidenav-icons"></span><mat-icon aria-hidden="false" aria-label="Home">home</mat-icon></a>
+      <a mat-list-item routerLink="board" routerLinkActive="active-link">Board <span class="sidenav-icons"></span><mat-icon aria-hidden="false" aria-label="Board">list</mat-icon></a>
+      <a mat-list-item routerLink="logout" routerLinkActive="active-link">Logout <span class="sidenav-icons"></span><mat-icon aria-hidden="false" aria-label="Logout">subdirectory_arrow_left</mat-icon></a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

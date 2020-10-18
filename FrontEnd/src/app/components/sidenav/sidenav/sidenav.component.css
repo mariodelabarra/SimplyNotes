@@ -21,3 +21,7 @@ mat-sidenav-container.mat-drawer-container {
   flex-direction: column;
   height: 100vh;
 }
+
+.sidenav-icons {
+  flex: 1 1 auto;
+}
