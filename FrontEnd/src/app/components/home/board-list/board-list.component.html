@@ -1,11 +1,12 @@
 <div class="board-container">
     <div class="board-container-div">
-        <div class="ripple-container"
-         matRipple [matRippleColor]="color" *ngFor="let board of boards">
+        <a class="ripple-container"
+         matRipple [matRippleColor]="color" *ngFor="let board of boards"
+         routerLink="/board/{{board.id}}">
          <p>
              <strong>{{ board.name }}</strong>
          </p>
-        </div>
+        </a>
 
     </div>
 </div>

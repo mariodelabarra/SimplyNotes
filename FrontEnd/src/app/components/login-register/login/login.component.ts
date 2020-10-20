@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   loginError = "";
   loginForm: FormGroup;
-
+  isVisible: boolean = false;
 
   hide = true;
 
@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(submittedForm: FormGroup) {
+    this.isVisible = true;
     this.authService.login(submittedForm.value.email, submittedForm.value.password).
         subscribe(authResponse => {
           this.router.navigate(['dashboard/home']);

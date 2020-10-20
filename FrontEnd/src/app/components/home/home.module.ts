@@ -5,6 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home/home.component';
 import { BoardListComponent } from './board-list/board-list.component';
 import { AngularMaterialModule } from 'src/app/angular-material.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { AngularMaterialModule } from 'src/app/angular-material.module';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    SharedModule
   ]
 })
 export class HomeModule { }

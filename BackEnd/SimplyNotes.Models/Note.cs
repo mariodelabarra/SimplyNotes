@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SimplyNotes.Models
 {
@@ -9,7 +10,7 @@ namespace SimplyNotes.Models
         public string Description { get; set; }
         public DateTime DateCreate { get; set; }
         public int UserId { get; set; }
-
         public int BoardId { get; set; }
+        public List<Task> Tasks { get; set; }
     }
 }

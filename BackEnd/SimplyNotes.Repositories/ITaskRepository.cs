@@ -5,8 +5,8 @@ using System.Text;
 
 namespace SimplyNotes.Repositories
 {
-    public interface IListRepository: IRepository<List>
+    public interface ITaskRepository: IRepository<Task>
     {
-        IEnumerable<List> GetPaginatedList(int page, int rows);
+        IEnumerable<Task> GetTasksByNote(int noteId);
     }
 }

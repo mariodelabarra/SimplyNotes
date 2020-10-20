@@ -2,3 +2,7 @@
     padding-top: 1em;
     padding-left: 2em;
 }
+
+hr {
+    border: 2px solid rgba(169,169,169, 0.3);
+}
