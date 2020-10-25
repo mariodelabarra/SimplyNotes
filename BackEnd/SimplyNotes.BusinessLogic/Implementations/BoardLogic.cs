@@ -3,6 +3,7 @@ using SimplyNotes.Models;
 using SimplyNotes.UnitOfWork;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SimplyNotes.BusinessLogic.Implementations
@@ -24,11 +25,6 @@ namespace SimplyNotes.BusinessLogic.Implementations
             return _unitOfWork.Board.GetById(id);
         }
 
-        public IEnumerable<Board> GetAllBoard(int userId, int page, int rows)
-        {
-            return _unitOfWork.Board.GetAllBoard(userId, page, rows);
-        }
-
         public int Insert(Board board)
         {
             return _unitOfWork.Board.Insert(board);
@@ -37,6 +33,35 @@ namespace SimplyNotes.BusinessLogic.Implementations
         public bool Update(Board board)
         {
             return _unitOfWork.Board.Update(board);
+        }
+
+        public IEnumerable<Board> GetAllBoard(int userId, int page, int rows)
+        {
+            return _unitOfWork.Board.GetAllBoard(userId, page, rows);
+        }
+
+        public Board GetBoardData(int boardId)
+        {
+            Board boardData = _unitOfWork.Board.GetById(boardId);
+            List<Note> notes = _unitOfWork.Note.GetNotesByBoard(boardId);
+            List<Task> tasks = new List<Task>();
+            if (notes.Count > 0)
+            {
+                boardData.Notes = notes;
+
+                //Recorro las notas para buscar las tareas de cada una
+                for(int i=0; i < notes.Count; i++)
+                {
+                    tasks = _unitOfWork.Task.GetTasksByNote(notes[i].Id).ToList();
+                    if(tasks.Count > 0)
+                    {
+                        boardData.Notes[i].Tasks = tasks;
+                    }
+                }
+            }
+
+            return boardData;
+
         }
     }
 }

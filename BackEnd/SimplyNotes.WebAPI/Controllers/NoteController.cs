@@ -9,7 +9,8 @@ using SimplyNotes.Models;
 
 namespace SimplyNotes.WebAPI.Controllers
 {
-    [Route("api/Note")]
+    [ApiController]
+    [Route("api/[controller]")]
     [Authorize]
     public class NoteController : Controller
     {

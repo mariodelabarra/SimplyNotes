@@ -1,0 +1,18 @@
+<mat-card class="note-card" *ngFor="let note of notes">
+    <mat-card-header class="note-header-card" flex>
+      <div>
+        <mat-card-title class="note-title-card">{{ note.title }}</mat-card-title>
+        <mat-card-actions class="note-title-buttons">
+            <button mat-flat-button><mat-icon>add</mat-icon></button>
+            <button mat-flat-button><mat-icon>delete_outline</mat-icon></button>
+        </mat-card-actions>
+        <mat-card-subtitle></mat-card-subtitle>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        <!-- Descripcion de la nota-->
+        <mat-card class="note-task-card" *ngFor="let task of note.tasks">{{ task.name }} <mat-checkbox color="warn" class="example-margin"></mat-checkbox></mat-card>
+      </p>
+    </mat-card-content>
+  </mat-card>

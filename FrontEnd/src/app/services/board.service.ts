@@ -15,5 +15,9 @@ export class BoardService {
     return this.http.get<Board[]>(`${environment.urlService}/board/GetAllBoard/${user}/${page}/${rows}`);
   }
 
+  getBoardData(boardId: number): Observable<Board> {
+    return this.http.get<Board>(`${environment.urlService}/board/GetBoardData/${boardId}`);
+  }
+
 
 }

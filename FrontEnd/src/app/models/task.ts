@@ -1,10 +1,9 @@
-import { Note } from "./note";
-
-export class Board {
+export class Task {
     id: number;
     name: string;
     description: string;
     dateCreate: Date;
+    finished: boolean;
     userCreate: number;
-    notes: Note[];
+    noteId: number;
 }

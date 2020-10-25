@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { Role } from 'src/app/auth/role.enum';
-import { AuthGuard } from 'src/app/guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [

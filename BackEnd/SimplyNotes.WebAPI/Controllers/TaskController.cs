@@ -8,7 +8,8 @@ using System.Linq;
 
 namespace SimplyNotes.WebAPI.Controllers
 {
-    [Route("api/board")]
+    [ApiController]
+    [Route("api/[controller]")]
     [Authorize]
     public class TaskController: Controller
     {

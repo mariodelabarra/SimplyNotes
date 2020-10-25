@@ -20,7 +20,7 @@ export class BoardListComponent implements OnInit {
   color: string;
 
   constructor(private boardService: BoardService) {
-    this.getBoard(3,1,3);
+    this.getBoard(1,1,3);
    }
 
   ngOnInit(): void {

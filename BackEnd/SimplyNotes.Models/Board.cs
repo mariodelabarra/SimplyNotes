@@ -10,7 +10,6 @@ namespace SimplyNotes.Models
         public string Description { get; set; }
         public DateTime DateCreate { get; set; }
         public int UserCreate { get; set; }
-        public List<User> UserList { get; set; }
         public List<Note> Notes { get; set; }
     }
 }

@@ -2,7 +2,7 @@
     <div class="board-container-div">
         <a class="ripple-container"
          matRipple [matRippleColor]="color" *ngFor="let board of boards"
-         routerLink="/board/{{board.id}}">
+         [routerLink]="['/dashboard/board/', board.id]">
          <p>
              <strong>{{ board.name }}</strong>
          </p>

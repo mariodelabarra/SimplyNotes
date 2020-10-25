@@ -12,6 +12,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SimplyNotes.BusinessLogic.Implementations;
+using SimplyNotes.BusinessLogic.Interfaces;
 using SimplyNotes.DataAccess;
 using SimplyNotes.UnitOfWork;
 using SimplyNotes.WebAPI.Authentication;
@@ -31,6 +33,10 @@ namespace SimplyNotes.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IBoardLogic, BoardLogic>();
+            services.AddTransient<INoteLogic, NoteLogic>();
+            services.AddTransient<ITaskLogic, TaskLogic>();
+
             services.AddSingleton<IUnitOfWork>(option => new SimplyNotesUnitOfWork(
                 Configuration.GetConnectionString("SimplyNotes")
                 ));
@@ -65,13 +71,13 @@ namespace SimplyNotes.WebAPI
 
             app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
-            app.UseAuthentication(); // It will use authentication
-
-            app.ConfigureExceptionHandler();
-
             app.UseHttpsRedirection();
 
+            app.UseAuthentication(); // It will use authentication
+
             app.UseRouting();
+
+            app.ConfigureExceptionHandler();
 
             app.UseAuthorization();
 
