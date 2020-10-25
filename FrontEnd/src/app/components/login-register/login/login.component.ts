@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { subscribeOn } from 'rxjs/operators';
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
 import { AuthService } from '../../../services/auth.service';
 
 @Component({
@@ -17,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   hide = true;
 
-  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService ) { }
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService,
+              private userService: UserService) { }
 
   ngOnInit(): void {
     this.buildLoginForm();
@@ -31,10 +34,20 @@ export class LoginComponent implements OnInit {
   }
 
   login(submittedForm: FormGroup) {
+    let user = new User();
+    user.email = submittedForm.value.email;
+    debugger;
     this.isVisible = true;
     this.authService.login(submittedForm.value.email, submittedForm.value.password).
         subscribe(authResponse => {
-          this.router.navigate(['dashboard/home']);
+          this.userService.getUserByEmail(user).subscribe(
+            resp => {
+              this.router.navigate(['dashboard/home']);
+              if(resp != null){
+                localStorage.setItem('user', JSON.stringify(resp));
+              }
+            }
+          );
         }, error => this.loginError = error);
   }
 

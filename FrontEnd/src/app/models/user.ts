@@ -1,12 +1,12 @@
 export class User {
-    Id: number;
-    Username: string;
-    FirstName: string;
-    LastName: string;
-    Email: string;
-    Password: string;
-    Role: string;
-    DateCreate: Date;
-    BirthDay: Date;
+    id: number;
+    username: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+    role: string;
+    dateCreate: Date;
+    birthDay: Date;
 }
 

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Board } from '../models/board';
 
@@ -17,6 +18,12 @@ export class BoardService {
 
   getBoardData(boardId: number): Observable<Board> {
     return this.http.get<Board>(`${environment.urlService}/board/GetBoardData/${boardId}`);
+  }
+
+  postBoardData(newBoard: Board): Observable<Response> {
+    return this.http.post(`${environment.urlService}/board`, newBoard)
+    .pipe(
+      map((response: any) => response));
   }
 
 

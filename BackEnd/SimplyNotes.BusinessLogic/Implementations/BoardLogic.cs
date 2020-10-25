@@ -40,9 +40,17 @@ namespace SimplyNotes.BusinessLogic.Implementations
             return _unitOfWork.Board.GetAllBoard(userId, page, rows);
         }
 
-        public Board GetBoardData(int boardId)
+        public BoardList GetBoardData(int boardId)
         {
-            Board boardData = _unitOfWork.Board.GetById(boardId);
+            Board boardAux = _unitOfWork.Board.GetById(boardId);
+            BoardList boardData = new BoardList
+            {
+                Id = boardAux.Id,
+                Name = boardAux.Name,
+                Description = boardAux.Description,
+                DateCreate = boardAux.DateCreate,
+                UserCreate = boardAux.UserCreate
+            };
             List<Note> notes = _unitOfWork.Note.GetNotesByBoard(boardId);
             List<Task> tasks = new List<Task>();
             if (notes.Count > 0)

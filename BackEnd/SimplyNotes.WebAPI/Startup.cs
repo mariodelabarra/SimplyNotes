@@ -36,6 +36,7 @@ namespace SimplyNotes.WebAPI
             services.AddTransient<IBoardLogic, BoardLogic>();
             services.AddTransient<INoteLogic, NoteLogic>();
             services.AddTransient<ITaskLogic, TaskLogic>();
+            services.AddTransient<IUserLogic, UserLogic>();
 
             services.AddSingleton<IUnitOfWork>(option => new SimplyNotesUnitOfWork(
                 Configuration.GetConnectionString("SimplyNotes")

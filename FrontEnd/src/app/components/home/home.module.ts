@@ -6,15 +6,21 @@ import { HomeComponent } from './home/home.component';
 import { BoardListComponent } from './board-list/board-list.component';
 import { AngularMaterialModule } from 'src/app/angular-material.module';
 import { SharedModule } from '../shared/shared.module';
+import { NewBoardComponent } from './new-board/new-board.component';
+import { DeleteBoardComponent } from './delete-board/delete-board.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [HomeComponent, BoardListComponent],
+  declarations: [HomeComponent, BoardListComponent, NewBoardComponent, DeleteBoardComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
     AngularMaterialModule,
-    SharedModule
-  ]
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  entryComponents: [NewBoardComponent]
 })
 export class HomeModule { }

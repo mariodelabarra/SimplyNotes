@@ -9,7 +9,7 @@ namespace SimplyNotes.BusinessLogic.Interfaces
     {
         Board GetById(int id);
         IEnumerable<Board> GetAllBoard(int userId, int page, int rows);
-        Board GetBoardData(int boardId);
+        BoardList GetBoardData(int boardId);
         int Insert(Board board);
         bool Update(Board board);
         bool Delete(Board board);

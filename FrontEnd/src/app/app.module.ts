@@ -21,6 +21,9 @@ import { AuthHttpInterceptor } from './auth/AuthHttpInterceptor';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 
+//Service
+import { UserService } from './services/user.service';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -37,7 +40,7 @@ import { AuthGuard } from './guards/auth.guard';
     SidenavModule,
     LayoutModule
   ],
-  providers: [AuthService, AuthGuard,
+  providers: [AuthService, AuthGuard, UserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthHttpInterceptor,

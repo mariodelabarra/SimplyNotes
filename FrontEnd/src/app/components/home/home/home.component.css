@@ -1,6 +1,15 @@
 .title-board {
     padding-top: 1em;
     padding-left: 2em;
+    flex: 1 1 auto;
+}
+
+.title-board div {
+    display: inline-block;
+}
+
+.title-button-board {
+    margin-left: 0.5em;
 }
 
 hr {

@@ -7,5 +7,6 @@ namespace SimplyNotes.Models
     public class BoardList: Board
     {
         public int TotalRecords { get; set; }
+        public List<Note> Notes { get; set; }
     }
 }

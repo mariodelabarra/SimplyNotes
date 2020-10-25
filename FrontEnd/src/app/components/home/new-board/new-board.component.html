@@ -1,0 +1,29 @@
+<div class="new-board-container">
+    <h2>New Board:</h2>
+    <form [formGroup]="newBoardForm" (ngSubmit)="saveBoard();">
+        <mat-dialog-content>
+
+            <div class="element-form">
+                <label class="label-description">Board Name:</label>
+                <mat-form-field class="new-board-form-field">
+                  <input type="text" matInput placeholder="Board Name" aria-label="Board Name" formControlName="name" />
+                  <mat-error *ngIf="newBoardForm.get('name').hasError('required')">Board Name is required</mat-error>
+                  <mat-error *ngIf="newBoardForm.get('name').hasError('cannotContainSpace')">Board Name cannot contain Space</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="element-form">
+                <label class="label-description">Description:</label>
+                <mat-form-field class="new-board-form-field">
+                  <input type="text" matInput placeholder="Description" aria-label="Description" formControlName="description" />
+                </mat-form-field>
+            </div>
+
+        </mat-dialog-content>
+        <mat-dialog-actions>
+            <button type="submit" mat-raised-button color="primary" (click)="saveBoard();" [disabled]="newBoardForm.invalid">Create</button>
+            <button mat-button mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </form>
+</div>
+

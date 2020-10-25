@@ -27,5 +27,18 @@ namespace SimplyNotes.DataAccess
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }
+
+        public User GetUserByEmail(string email)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@email", email);
+
+            using(var connection = new SqlConnection(_connectionString))
+            {
+                return connection.QueryFirstOrDefault<User>("dbo.GetUserByEmail",
+                                               parameters,
+                                               commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
     }
 }

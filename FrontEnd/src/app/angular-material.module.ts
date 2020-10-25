@@ -12,6 +12,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -28,6 +29,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatRippleModule,
     MatProgressSpinnerModule,
     MatCheckboxModule,
+    MatDialogModule,
     ScrollingModule,
   ],
   exports: [
@@ -42,6 +44,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatRippleModule,
     MatProgressSpinnerModule,
     MatCheckboxModule,
+    MatDialogModule,
     ScrollingModule
   ]
 })

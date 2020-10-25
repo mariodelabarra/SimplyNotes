@@ -1,5 +1,11 @@
 <div class="title-board">
-    <h1 ><p><i class="material-icons">face</i> Personal Boards:</p></h1>
+    <div>
+        <h1 ><p><i class="material-icons">face</i> Personal Boards:</p></h1>
+    </div>
+    <div >
+        <button class="title-button-board" mat-raised-button color="primary" (click)="newBoard();"><mat-icon>add</mat-icon></button>
+        <button class="title-button-board" mat-stroked-button color="warn" (click)="deleteBoard();"><mat-icon>delete_outline</mat-icon></button>
+    </div>
     <hr width="40%" align="left"/>
 </div>
 <br>
