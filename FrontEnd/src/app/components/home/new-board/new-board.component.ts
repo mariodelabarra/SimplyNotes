@@ -37,7 +37,6 @@ export class NewBoardComponent implements OnInit {
       const board = Object.assign({}, this.board, this.newBoardForm.value);
       let user = Object.assign({}, this.user, JSON.parse(localStorage.getItem('user')));
       board.userCreate = user.id;
-      debugger;
       this.boardService.postBoardData(board).subscribe(
         resp => {
           this.dialogRef.close();

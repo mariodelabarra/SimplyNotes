@@ -25,14 +25,5 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  deleteBoard(){
-    const dialogRef = this.dialog.open(DeleteBoardComponent, {
-      width: '250px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
 
 }

@@ -9,10 +9,11 @@ import { SharedModule } from '../shared/shared.module';
 import { NewBoardComponent } from './new-board/new-board.component';
 import { DeleteBoardComponent } from './delete-board/delete-board.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditBoardComponent } from './edit-board/edit-board.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, BoardListComponent, NewBoardComponent, DeleteBoardComponent],
+  declarations: [HomeComponent, BoardListComponent, NewBoardComponent, DeleteBoardComponent, EditBoardComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

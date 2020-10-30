@@ -1,12 +1,14 @@
 <div class="board-container">
     <div class="board-container-div">
-        <a class="ripple-container"
-         matRipple [matRippleColor]="color" *ngFor="let board of boards"
-         [routerLink]="['/dashboard/board/', board.id]">
-         <p>
-             <strong>{{ board.name }}</strong>
-         </p>
-        </a>
+        <div class="board-div" matRipple [matRippleColor]="color" *ngFor="let board of boards">
+            <a class="redirect-container" [routerLink]="['/dashboard/board/', board.id]">
+                <strong>{{ board.name }}</strong>
+            </a>
+                 <p class="board-title">
+                     <button class="edit-button-board" mat-flat-button (click)="editBoard();"><mat-icon>create</mat-icon></button>
+                     <button class="delete-button-board" mat-flat-button (click)="deleteBoard();"><mat-icon>delete_outline</mat-icon></button>
+                 </p>
 
+        </div>
     </div>
 </div>

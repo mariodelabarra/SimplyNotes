@@ -16,6 +16,26 @@
   z-index: 1;
 }
 
+#user-data-menu {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+#user-data-menu p {
+  
+}
+
+.example-header-image {
+  background-size: cover;
+  width: 70%;
+  height: 140px;
+  border-radius: 100%;
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+  vertical-align: text-bottom;
+}
+
 mat-sidenav-container.mat-drawer-container {
   display: flex;
   flex-direction: column;

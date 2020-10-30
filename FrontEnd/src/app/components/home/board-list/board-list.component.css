@@ -5,7 +5,7 @@
   max-height: 100%;
   width: 80%;
 }
-.ripple-container {
+.board-div {
     cursor: pointer;
     display: inline-block;
     margin-left: 3em;
@@ -19,7 +19,7 @@
     overflow: hidden;
 }
 
-.ripple-container:hover {
+.board-div:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     transform: translate3D(0,-1px,0) scale(1.03);
     /* width: 16em;
@@ -27,10 +27,34 @@
     transition: all 0.3s;
 }
 
-.ripple-container {
-    padding-top: 1em;
-    padding-left: 1em;
+.redirect-container {
+    margin-left: 1em;
+    color: white;
     text-decoration: none;
+    display: inline-block;
+    width: 65%;
+}
+
+.board-title {
+    display: inline-block;
+}
+
+.delete-button-board, .edit-button-board {
+    color: white;
+    background-color: #424242;
+    padding: 0;
+    min-width: 10%;
+    transition: all 0.3s;
+}
+
+.edit-button-board:hover {
+    color: green;
+    transition: all 0.3s;
+}
+
+.delete-button-board:hover {
+    color: red;
+    transition: all 0.3s;
 }
 
 @media (max-width: 767px) {

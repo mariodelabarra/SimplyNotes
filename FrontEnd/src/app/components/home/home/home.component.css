@@ -8,6 +8,11 @@
     display: inline-block;
 }
 
+.div-button {
+    float: right;
+    margin-right: 2em;
+}
+
 .title-button-board {
     margin-left: 0.5em;
 }
