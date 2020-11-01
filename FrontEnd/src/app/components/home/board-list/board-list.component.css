@@ -48,7 +48,7 @@
 }
 
 .edit-button-board:hover {
-    color: green;
+    color: rgb(1, 209, 1);
     transition: all 0.3s;
 }
 

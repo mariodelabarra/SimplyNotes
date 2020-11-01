@@ -26,5 +26,11 @@ export class BoardService {
       map((response: any) => response));
   }
 
+  editBoard(editBoard: Board): Observable<Response> {
+    return this.http.put(`${environment.urlService}/board`, editBoard)
+    .pipe(
+      map((response: any) => response)
+    );
+  }
 
 }

@@ -1,15 +1,12 @@
 USE [SimplyNotes]
 GO
 
-ALTER TABLE [dbo].[Board] DROP CONSTRAINT [FK_Boards_Users]
-GO
-
-/****** Object:  Table [dbo].[Board]    Script Date: 25/10/2020 13:09:08 ******/
+/****** Object:  Table [dbo].[Board]    Script Date: 31/10/2020 22:50:55 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Board]') AND type in (N'U'))
 DROP TABLE [dbo].[Board]
 GO
 
-/****** Object:  Table [dbo].[Board]    Script Date: 25/10/2020 13:09:08 ******/
+/****** Object:  Table [dbo].[Board]    Script Date: 31/10/2020 22:50:55 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -27,13 +24,6 @@ CREATE TABLE [dbo].[Board](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
-GO
-
-ALTER TABLE [dbo].[Board]  WITH CHECK ADD  CONSTRAINT [FK_Boards_Users] FOREIGN KEY([UserCreate])
-REFERENCES [dbo].[User] ([Id])
-GO
-
-ALTER TABLE [dbo].[Board] CHECK CONSTRAINT [FK_Boards_Users]
 GO
 
 
