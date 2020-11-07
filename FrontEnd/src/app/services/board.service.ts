@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -8,7 +8,9 @@ import { Board } from '../models/board';
 @Injectable({
   providedIn: 'root'
 })
+
 export class BoardService {
+
 
   constructor(private http: HttpClient) { }
 
@@ -29,6 +31,13 @@ export class BoardService {
   editBoard(editBoard: Board): Observable<Response> {
     return this.http.put(`${environment.urlService}/board`, editBoard)
     .pipe(
+      map((response: any) => response)
+    );
+  }
+
+  deleteBoard(deleteBoardId: number): Observable<Response> {
+    debugger;
+    return this.http.delete(`${environment.urlService}/board/${deleteBoardId}`).pipe(
       map((response: any) => response)
     );
   }

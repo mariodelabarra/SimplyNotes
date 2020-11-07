@@ -35,7 +35,7 @@ export class NewBoardComponent implements OnInit {
   saveBoard() {
     if(this.newBoardForm.dirty && this.newBoardForm.valid){
       const board = Object.assign({}, this.board, this.newBoardForm.value);
-      let user = Object.assign({}, this.user, JSON.parse(localStorage.getItem('user')));
+      let user: User = JSON.parse(JSON.parse(localStorage.getItem('user')));
       board.userCreate = user.id;
       this.boardService.postBoardData(board).subscribe(
         resp => {

@@ -1,18 +1,37 @@
 <mat-card class="note-card" *ngFor="let note of notes">
     <mat-card-header class="note-header-card" flex>
       <div>
-        <mat-card-title class="note-title-card">{{ note.title }}</mat-card-title>
-        <div class="note-title-buttons">
-            <button mat-flat-button><mat-icon>add</mat-icon></button>
-            <button mat-flat-button><mat-icon>delete_outline</mat-icon></button>
-        </div>
+        <mat-card-title class="note-title-card">
+          <div class="div-title-card">{{ note.title }}</div>
+          <div class="div-buttons">
+              <button mat-flat-button class="note-title-buttons" (click)="newTask();" ><mat-icon>add</mat-icon></button>
+              <button mat-flat-button class="note-title-buttons" (click)="deleteTaskMode = !deleteTaskMode"><mat-icon>delete_outline</mat-icon></button>
+          </div>
+        </mat-card-title>
         <mat-card-subtitle></mat-card-subtitle>
       </div>
     </mat-card-header>
     <mat-card-content>
-      <p>
-        <!-- Descripcion de la nota-->
-        <mat-card class="note-task-card" *ngFor="let task of note.tasks">{{ task.name }} <mat-checkbox color="warn" class="example-margin"></mat-checkbox></mat-card>
+      <!-- Normal Mode -->
+      <p *ngIf="!deleteTaskMode">
+        <mat-card class="note-task-card" *ngFor="let task of note.tasks">
+          <div class="task-name-{{task.id}}">
+            {{ task.name }} 
+          </div>
+          <div class="task-checkbox">
+            <mat-checkbox [(ngModel)]="task.finished" color="warn" class="example-margin" 
+             (ngModelChange)="updateCheckBox(task.id, $event);"></mat-checkbox>
+          </div>
+        </mat-card>
+      </p>
+      
+      <!-- Delete Mode -->
+      <p *ngIf="deleteTaskMode">
+        <mat-card class="note-task-card-delete" (click)="deleteTask();" *ngFor="let task of note.tasks">
+          <div class="task-name-delete">
+            {{ task.name }} 
+          </div>
+        </mat-card>
       </p>
     </mat-card-content>
   </mat-card>

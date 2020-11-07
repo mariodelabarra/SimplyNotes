@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   newBoard(): void{
       const dialogRef = this.dialog.open(NewBoardComponent, {
-        width: '350px'
+        panelClass: 'modal-dialog',
       });
 
       dialogRef.afterClosed().subscribe(result => {

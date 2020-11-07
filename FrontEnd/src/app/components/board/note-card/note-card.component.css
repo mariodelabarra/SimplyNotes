@@ -1,3 +1,7 @@
+.modal-dialog {
+    height: 350px;
+}
+
 .note-card {
     display: inline-block;
     margin-left: 1.5em;
@@ -8,11 +12,23 @@
     box-shadow: 0 5px 10px #777;
     height: 100%;
     overflow: hidden;
+    min-width: 18%;
 }
 
-.note-task-card {
+.note-task-card, .note-task-card-delete {
     margin-top: 1em;
     min-width: 200px;
+}
+
+.note-task-card-delete {
+    background-color: #424242;
+    transition: all 0.3s;
+    animation: shake-baidu 1s ease 0s; /*infinite;*/
+}
+
+.note-task-card-delete:hover {
+    background-color: #f44336;
+    transition: all 0.3s;
 }
 
 .note-header-card {
@@ -20,9 +36,49 @@
 }
 
 .note-title-card{
+    width: 100%;
+}
+
+.div-title-card {
     display: inline-block;
+    width: 75%;
+}
+
+.div-buttons {
+    display: inline-block;
+    width: 25%;
 }
 
 .note-title-buttons {
+    background-color: #3f51b5;
+    color: white;
+    padding: 0.1em;
+    min-width: auto;
+}
+
+[class|="task-name"] {
+/*Selecciona la etiqueta con el atributo que empiece con task-name*/
     display: inline-block;
+    width: 90%;
+}
+
+.task-name-delete {
+    color: white;
+}
+
+.task-checkbox {
+    display: inline-block;
+    width: 10%;
+}
+
+/*Animacion de sacudir*/
+@keyframes shake-baidu {
+    from    { transform: rotate(0deg); }
+    4%      { transform: rotate(2deg); }
+    12.5%   { transform: rotate(-2deg); }
+    21%     { transform: rotate(2deg); }
+    29%     { transform: rotate(-2deg); }
+    37.5%   { transform: rotate(2deg); }
+    46%     { transform: rotate(-2deg); }
+    50%,to  { transform: rotate(0deg); }
 }

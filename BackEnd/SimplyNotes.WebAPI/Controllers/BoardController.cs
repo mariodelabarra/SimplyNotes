@@ -62,8 +62,11 @@ namespace SimplyNotes.WebAPI.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Delete([FromBody] Board board)
+        [Route("{id:int}")]
+        public IActionResult Delete(int id)
         {
+            Board board = _logic.GetById(id);
+
             if (board.Id > 0)
                 return Ok(_logic.Delete(board));
             return BadRequest();

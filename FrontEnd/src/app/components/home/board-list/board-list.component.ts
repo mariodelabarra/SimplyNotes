@@ -38,16 +38,14 @@ export class BoardListComponent extends CacheService implements OnInit {
     this.boardService.getBoardList(userId, page, rows).subscribe(
       resp => {
         this.boards = resp;
-        debugger;
       }
     );
   }
 
   editBoard(boardId: number): void {
     let board: Board = this.boards.find(x => x.id == boardId);
-    debugger;
     const dialogRef = this.dialog.open(EditBoardComponent, {
-      width: '250px',
+      panelClass: 'modal-dialog',
       data: board
     });
 
@@ -57,11 +55,14 @@ export class BoardListComponent extends CacheService implements OnInit {
   }
 
   deleteBoard(boardId: number): void{
+    let board: Board = this.boards.find(x => x.id == boardId);
     const dialogRef = this.dialog.open(DeleteBoardComponent, {
-      width: '250px'
+      panelClass: 'modal-dialog',
+      data: board
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.getBoard(this.user.id,1,10);
       console.log('The dialog was closed');
     });
   }

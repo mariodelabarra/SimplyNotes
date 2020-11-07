@@ -3,6 +3,15 @@
     padding-left: 2em;
 }
 
+.title-board div {
+    display: inline-block;
+}
+
+.div-button {
+    float: right;
+    margin-right: 2em;
+}
+
 hr {
     border: 2px solid rgba(169,169,169, 0.3);
 }

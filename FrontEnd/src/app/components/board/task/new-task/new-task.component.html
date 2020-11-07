@@ -1,0 +1,36 @@
+<div class="new-task-container">
+    <h2>New Task</h2>
+    <form  [formGroup]="newTaskForm">
+        <mat-dialog-content id="task-form">
+
+            <div class="element-form">
+                <label class="label-description">Task Name:</label>
+                <mat-form-field class="new-task-form-field">
+                  <input type="text" matInput placeholder="Task Name" aria-label="Task Name" formControlName="name" />
+                  <mat-error *ngIf="newTaskForm.get('name').hasError('required')">Task Name is required</mat-error>
+                  <mat-error *ngIf="newTaskForm.get('name').hasError('cannotContainSpace')">Task Name cannot contain Space</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="element-form">
+                <label class="label-description">Description:</label>
+                <mat-form-field class="new-task-form-field">
+                  <input type="text" matInput placeholder="Description" aria-label="Description" formControlName="description" />
+                </mat-form-field>
+            </div>
+
+            <div class="element-form">
+                <label class="label-description">Finished:</label>
+                <!-- <mat-form-field class="new-board-form-field"> -->
+                    <mat-checkbox  color="warn" class="example-margin" formControlName="finished"></mat-checkbox>
+                    <!-- <input type="text" matInput placeholder="Description" aria-label="Description" formControlName="description" /> -->
+                <!-- </mat-form-field> -->
+            </div>
+
+        </mat-dialog-content>
+        <mat-dialog-actions>
+            <button type="submit" mat-raised-button color="primary" (click)="saveTask();" [disabled]="newTaskForm.invalid">Create</button>
+            <button mat-button mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </form>
+</div>

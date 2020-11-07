@@ -1,1 +1,11 @@
-<p>delete-board works!</p>
+<div>
+    <h2>Delete Board</h2>
+
+    <p id="text-delete">
+        Are you sure that you want to delete <strong>{{ board.name }}</strong> board?
+    </p>
+
+    <button class="button-delete" mat-raised-button color="warn" (click)="deleteBoard();">Delete</button>
+    <button class="button-delete" mat-button mat-dialog-close>Cancel</button>
+</div>
+
