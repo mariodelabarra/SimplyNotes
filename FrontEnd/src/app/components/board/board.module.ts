@@ -9,12 +9,11 @@ import { NewNoteComponent } from './note-card/new-note/new-note.component';
 import { EditNoteComponent } from './note-card/edit-note/edit-note.component';
 import { NewTaskComponent } from './task/new-task/new-task.component';
 import { EditTaskComponent } from './task/edit-task/edit-task.component';
-import { DeleteTaskComponent } from './task/delete-task/delete-task.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [BoardComponent, NoteCardComponent, NewNoteComponent, EditNoteComponent, NewTaskComponent, EditTaskComponent, DeleteTaskComponent],
+  declarations: [BoardComponent, NoteCardComponent, NewNoteComponent, EditNoteComponent, NewTaskComponent, EditTaskComponent],
   imports: [
     CommonModule,
     BoardRoutingModule,

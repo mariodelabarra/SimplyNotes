@@ -11,6 +11,6 @@ namespace SimplyNotes.Models
         public DateTime DateCreate { get; set; }
         public int UserId { get; set; }
         public int BoardId { get; set; }
-        public List<Task> Tasks { get; set; }
+        
     }
 }

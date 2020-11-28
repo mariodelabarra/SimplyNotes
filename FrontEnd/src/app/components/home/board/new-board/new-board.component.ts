@@ -4,7 +4,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Board } from 'src/app/models/board';
 import { User } from 'src/app/models/user';
 import { BoardService } from 'src/app/services/board.service';
-import { WhiteSpaceValidators } from '../../../validators/whiteSpaceValidators';
+import { WhiteSpaceValidators } from 'src/app/validators/whiteSpaceValidators';
 
 @Component({
   selector: 'app-new-board',

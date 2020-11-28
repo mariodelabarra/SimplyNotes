@@ -23,6 +23,7 @@ import { AuthGuard } from './guards/auth.guard';
 
 //Service
 import { UserService } from './services/user.service';
+import { TaskService } from './services/task.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { UserService } from './services/user.service';
     SidenavModule,
     LayoutModule
   ],
-  providers: [AuthService, AuthGuard, UserService,
+  providers: [AuthService, AuthGuard, UserService, TaskService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthHttpInterceptor,

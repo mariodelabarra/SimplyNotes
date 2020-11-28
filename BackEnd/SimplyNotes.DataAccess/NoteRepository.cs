@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using SimplyNotes.Models;
+using SimplyNotes.Models.Custom;
 using SimplyNotes.Repositories;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace SimplyNotes.DataAccess
 
         }
 
-        public List<Note> GetNotesByBoard(int boardId)
+        public List<NoteCustom> GetNotesByBoard(int boardId)
         {
             var parameters = new DynamicParameters();
             parameters.Add("@boardId", boardId);
@@ -25,7 +26,7 @@ namespace SimplyNotes.DataAccess
             {
                 using(var connection = new SqlConnection(_connectionString))
                 {
-                    return connection.Query<Note>("dbo.GetNotesByBoard",
+                    return connection.Query<NoteCustom>("dbo.GetNotesByBoard",
                                                    parameters,
                                                    commandType: System.Data.CommandType.StoredProcedure).ToList();
                 }

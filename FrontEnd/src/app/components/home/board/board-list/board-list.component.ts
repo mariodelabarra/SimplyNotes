@@ -3,9 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { Board } from 'src/app/models/board';
 import { User } from 'src/app/models/user';
 import { CacheService } from 'src/app/services/cache.service';
-import { BoardService } from '../../../services/board.service';
-import { DeleteBoardComponent } from '../delete-board/delete-board.component';
+import { BoardService } from 'src/app/services/board.service';
 import { EditBoardComponent } from '../edit-board/edit-board.component';
+import { DeleteModalComponent } from 'src/app/components/shared/delete-modal/delete-modal.component';
 
 @Component({
   selector: 'app-board-list',
@@ -56,7 +56,7 @@ export class BoardListComponent extends CacheService implements OnInit {
 
   deleteBoard(boardId: number): void{
     let board: Board = this.boards.find(x => x.id == boardId);
-    const dialogRef = this.dialog.open(DeleteBoardComponent, {
+    const dialogRef = this.dialog.open(DeleteModalComponent, {
       panelClass: 'modal-dialog',
       data: board
     });

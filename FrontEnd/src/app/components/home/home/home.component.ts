@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { DeleteBoardComponent } from '../delete-board/delete-board.component';
-import { NewBoardComponent } from '../new-board/new-board.component';
+import { NewBoardComponent } from '../board/new-board/new-board.component';
 
 @Component({
   selector: 'app-home',

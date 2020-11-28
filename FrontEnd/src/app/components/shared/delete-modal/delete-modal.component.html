@@ -1,0 +1,10 @@
+<div>
+    <h2>Delete {{dataType}}</h2>
+
+    <p id="text-delete">
+        Are you sure that you want to delete <strong>{{ dataName }}</strong> {{dataType.toLowerCase()}}?
+    </p>
+
+    <button class="button-delete" mat-raised-button color="warn" (click)="deleteData();">Delete</button>
+    <button class="button-delete" mat-button mat-dialog-close>Cancel</button>
+</div>

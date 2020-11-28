@@ -36,6 +36,7 @@ namespace SimplyNotes.WebAPI.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Task task)
         {
+            task.DateCreate = DateTime.Now;
             if (!ModelState.IsValid) return BadRequest();
             return Ok(_logic.Insert(task));
         }
@@ -51,8 +52,11 @@ namespace SimplyNotes.WebAPI.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Delete([FromBody] Task task)
+        [Route("{id:int}")]
+        public IActionResult Delete(int id)
         {
+            Task task = _logic.GetById(id);
+
             if (task.Id > 0)
                 return Ok(_logic.Delete(task));
             return BadRequest();

@@ -1,20 +1,109 @@
 .modal-dialog {
     height: 350px;
 }
+.title-board {
+    padding-top: 1em;
+    padding-left: 2em;
+}
 
-.note-card {
+.title-board div {
+    display: inline-block;
+}
+
+.title-icon-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-button {
+    float: right;
+    margin-right: 2em;
+}
+
+.div-button button {
+    background-color: #fafafa;
+}
+
+hr {
+    border: 2px solid rgba(169,169,169, 0.3);
+}
+
+#table-board-container {
+    display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#board-cards {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-right: 3em;
+    padding-bottom: 5em;
+}
+/*Note styles*/
+.note-card, .note-card-delete {
     display: inline-block;
     margin-left: 1.5em;
-    background-color: #3f51b5;
     color: whitesmoke;
     -webkit-box-shadow: 0 15px 10px #777;
     -moz-box-shadow: 0 15px 10px #777;
     box-shadow: 0 5px 10px #777;
-    height: 100%;
+    min-height: 200px;
     overflow: hidden;
     min-width: 18%;
+    vertical-align: top;
 }
 
+.note-card {
+    background-color: #3f51b5;
+}
+
+.note-card-delete {
+    background-color: #424242;
+    transition: 0.3s ease;
+}
+
+.note-card-delete:hover {
+    background-color: #f44336;
+    transition: 0.3s ease;
+}
+
+.note-title-card{
+    width: 100%;
+}
+
+.div-title-card {
+    display: inline-block;
+    width: 98%;
+}
+
+.div-buttons {
+    display: inline-block;
+    width: 25%;
+}
+
+.note-title-buttons, .note-title-delete-button {
+    padding: 0.1em;
+    min-width: auto;
+    color: white;
+}
+
+.note-title-buttons:hover, .note-title-delete-button:hover {
+    transform: translate3D(0,-1px,0) scale(1.03);
+}
+
+.note-title-buttons {
+    background-color: #3f51b5;
+    transition: 0.3s ease;
+}
+
+.note-title-delete-button {
+    background-color: #f44336;
+    transition: 0.3s ease;
+}
+/*============*/
+/*Task styles*/
 .note-task-card, .note-task-card-delete {
     margin-top: 1em;
     min-width: 200px;
@@ -22,6 +111,7 @@
 
 .note-task-card-delete {
     background-color: #424242;
+    color: white;
     transition: all 0.3s;
     animation: shake-baidu 1s ease 0s; /*infinite;*/
 }
@@ -35,31 +125,14 @@
     display: block;
 }
 
-.note-title-card{
-    width: 100%;
-}
-
-.div-title-card {
-    display: inline-block;
-    width: 75%;
-}
-
-.div-buttons {
-    display: inline-block;
-    width: 25%;
-}
-
-.note-title-buttons {
-    background-color: #3f51b5;
-    color: white;
-    padding: 0.1em;
-    min-width: auto;
-}
-
 [class|="task-name"] {
 /*Selecciona la etiqueta con el atributo que empiece con task-name*/
     display: inline-block;
     width: 90%;
+}
+
+.task-name-finished {
+    text-decoration: line-through;
 }
 
 .task-name-delete {

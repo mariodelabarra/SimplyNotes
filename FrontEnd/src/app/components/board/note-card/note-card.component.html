@@ -1,37 +1,62 @@
-<mat-card class="note-card" *ngFor="let note of notes">
-    <mat-card-header class="note-header-card" flex>
-      <div>
-        <mat-card-title class="note-title-card">
-          <div class="div-title-card">{{ note.title }}</div>
-          <div class="div-buttons">
-              <button mat-flat-button class="note-title-buttons" (click)="newTask();" ><mat-icon>add</mat-icon></button>
-              <button mat-flat-button class="note-title-buttons" (click)="deleteTaskMode = !deleteTaskMode"><mat-icon>delete_outline</mat-icon></button>
-          </div>
-        </mat-card-title>
-        <mat-card-subtitle></mat-card-subtitle>
-      </div>
-    </mat-card-header>
-    <mat-card-content>
-      <!-- Normal Mode -->
-      <p *ngIf="!deleteTaskMode">
-        <mat-card class="note-task-card" *ngFor="let task of note.tasks">
-          <div class="task-name-{{task.id}}">
-            {{ task.name }} 
-          </div>
-          <div class="task-checkbox">
-            <mat-checkbox [(ngModel)]="task.finished" color="warn" class="example-margin" 
-             (ngModelChange)="updateCheckBox(task.id, $event);"></mat-checkbox>
-          </div>
-        </mat-card>
-      </p>
+<div class="title-board">
+  <div>
+      <h1><p class="title-icon-text">	<mat-icon style="padding-right: 0.3em;">event_note</mat-icon> Board</p></h1>
+  </div>
+  <div class="div-button">
+      <button mat-flat-button (click)="newNote()"><mat-icon>add</mat-icon></button>
+      <button mat-flat-button (click)="this.deleteNoteMode = !this.deleteNoteMode"><mat-icon>delete_outline</mat-icon></button>
+  </div>
+  <hr width="98%" align="left"/>
+</div>
+<br>
+<div id="board-cards">
+
+  <mat-card [ngClass]="{'note-card': !deleteNoteMode, 'note-card-delete': deleteNoteMode}"  *ngFor="let note of notes" (click)="deleteNote(note)">
+    <div *ngIf="!deleteNoteMode">
+      <mat-card-header class="note-header-card">
+        <div>
+          <mat-card-title class="note-title-card">
+            <mat-grid-list cols="4" rowHeight="3:1">
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <div class="div-title-card">{{ note.title }}</div>
+              </mat-grid-tile>
+
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button mat-flat-button class="note-title-buttons" (click)="newTask(note.id);" ><mat-icon>add</mat-icon></button>
+                <button mat-flat-button [ngClass]="{'note-title-buttons': !deleteTaskMode || (deleteTaskMode && (deleteTaskModeNote != note.id))
+                , 'note-title-delete-button': deleteTaskMode && (deleteTaskModeNote == note.id)}" (click)="deleteTaskFunction(note.id)"><mat-icon>delete_outline</mat-icon></button>
+              </mat-grid-tile>
+            </mat-grid-list>
+            
+            <div class="div-buttons">
+                
+            </div>
+          </mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+          <mat-card [ngClass]="{'note-task-card': !deleteTaskMode || (deleteTaskMode && (deleteTaskModeNote != note.id)), 
+          'note-task-card-delete': deleteTaskMode && (deleteTaskModeNote == note.id)}"
+          (click)="deleteTask(task);" *ngFor="let task of note.tasks">
+            <div [className]="!task.finished ? 'task-name-'+task.id : 'task-name-finished'">
+              {{ task.name }} 
+            </div>
+            <div class="task-checkbox" *ngIf="!deleteTaskMode || (deleteTaskMode && (deleteTaskModeNote != note.id))">
+              <mat-checkbox [(ngModel)]="task.finished" color="warn" (ngModelChange)="updateCheckBox(task);"></mat-checkbox>
+            </div>
+          </mat-card>
+      </mat-card-content>
+    </div>
+    <div *ngIf="deleteNoteMode">
+      <mat-card-header class="note-header-card">
+        <div>
+          <mat-card-title class="note-title-card">
+            <div class="div-title-card">{{ note.title }}</div>
+          </mat-card-title>
+        </div>
+      </mat-card-header>
+    </div>
       
-      <!-- Delete Mode -->
-      <p *ngIf="deleteTaskMode">
-        <mat-card class="note-task-card-delete" (click)="deleteTask();" *ngFor="let task of note.tasks">
-          <div class="task-name-delete">
-            {{ task.name }} 
-          </div>
-        </mat-card>
-      </p>
-    </mat-card-content>
-  </mat-card>
+    </mat-card>
+</div>

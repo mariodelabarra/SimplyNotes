@@ -8,14 +8,18 @@
                 <mat-form-field class="new-task-form-field">
                   <input type="text" matInput placeholder="Task Name" aria-label="Task Name" formControlName="name" />
                   <mat-error *ngIf="newTaskForm.get('name').hasError('required')">Task Name is required</mat-error>
-                  <mat-error *ngIf="newTaskForm.get('name').hasError('cannotContainSpace')">Task Name cannot contain Space</mat-error>
+                  <mat-error *ngIf="newTaskForm.get('name').hasError('minlength')">Task Name is at least 2 characters.</mat-error>
+                  <mat-error *ngIf="newTaskForm.get('name').hasError('maxlength')">Task Name can not be longer than 25 characteres.</mat-error>
                 </mat-form-field>
             </div>
 
             <div class="element-form">
                 <label class="label-description">Description:</label>
-                <mat-form-field class="new-task-form-field">
-                  <input type="text" matInput placeholder="Description" aria-label="Description" formControlName="description" />
+                <mat-form-field class="new-task-form-field" appearance="fill">
+                    <textarea matInput id="textarea-form" formControlName="description"
+                    placeholder="Description" aria-label="Description"
+                    cdkTextareaAutosize></textarea>
+                  <!-- <input type="text" matInput placeholder="Description" aria-label="Description" formControlName="description" /> -->
                 </mat-form-field>
             </div>
 

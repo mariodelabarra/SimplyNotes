@@ -1,0 +1,27 @@
+.new-task-form-field {
+    width: 100%;
+    padding-left: 10px;
+    margin-top: 1.5em;
+}
+
+:host /deep/ .mat-form-field-appearance-fill .mat-form-field-flex {
+    padding: 0 .75em 0 .75em;
+}
+
+#task-form {
+    padding-bottom: 2em;
+}
+
+#textarea-form {
+    max-height: 150px;
+}
+
+.element-form {
+    display: flex;
+    align-items: center;
+}
+
+.label-description {
+    width: 110px;
+    margin-bottom: 0px;
+}

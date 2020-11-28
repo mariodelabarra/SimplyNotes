@@ -44,7 +44,7 @@ namespace SimplyNotes.WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Board board)
+        public IActionResult Post([FromBody] Board board)
         {
             board.DateCreate = DateTime.Now;
             if (!ModelState.IsValid) return BadRequest();

@@ -1,5 +1,6 @@
 ﻿using SimplyNotes.BusinessLogic.Interfaces;
 using SimplyNotes.Models;
+using SimplyNotes.Models.Custom;
 using SimplyNotes.UnitOfWork;
 using System;
 using System.Collections.Generic;
@@ -51,7 +52,7 @@ namespace SimplyNotes.BusinessLogic.Implementations
                 DateCreate = boardAux.DateCreate,
                 UserCreate = boardAux.UserCreate
             };
-            List<Note> notes = _unitOfWork.Note.GetNotesByBoard(boardId);
+            List<NoteCustom> notes = _unitOfWork.Note.GetNotesByBoard(boardId);
             List<Task> tasks = new List<Task>();
             if (notes.Count > 0)
             {

@@ -1,1 +1,31 @@
-<p>new-note works!</p>
+<div class="new-task-container">
+    <h2>New Note</h2>
+    <form  [formGroup]="newNoteForm">
+        <mat-dialog-content id="task-form">
+
+            <div class="element-form">
+                <label class="label-description">Note Name:</label>
+                <mat-form-field class="new-task-form-field">
+                  <input type="text" matInput placeholder="Note Name" aria-label="Note Name" formControlName="title" />
+                  <mat-error *ngIf="newNoteForm.get('title').hasError('required')">Note Name is required</mat-error>
+                  <mat-error *ngIf="newNoteForm.get('title').hasError('minlength')">Note Name is at least 2 characters.</mat-error>
+                  <mat-error *ngIf="newNoteForm.get('title').hasError('maxlength')">Note Name can not be longer than 25 characteres.</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="element-form">
+                <label class="label-description">Description:</label>
+                <mat-form-field class="new-task-form-field" appearance="fill">
+                    <textarea matInput id="textarea-form" formControlName="description"
+                    placeholder="Description" aria-label="Description"
+                    cdkTextareaAutosize maxlength="255"></textarea>
+                </mat-form-field>
+            </div>
+
+        </mat-dialog-content>
+        <mat-dialog-actions>
+            <button type="submit" mat-raised-button color="primary" (click)="saveNote();" [disabled]="newNoteForm.invalid">Create</button>
+            <button mat-button mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </form>
+</div>

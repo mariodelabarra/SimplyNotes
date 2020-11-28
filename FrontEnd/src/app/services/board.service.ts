@@ -36,7 +36,6 @@ export class BoardService {
   }
 
   deleteBoard(deleteBoardId: number): Observable<Response> {
-    debugger;
     return this.http.delete(`${environment.urlService}/board/${deleteBoardId}`).pipe(
       map((response: any) => response)
     );

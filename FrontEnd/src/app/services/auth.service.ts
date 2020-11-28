@@ -22,7 +22,8 @@ export class AuthService extends CacheService {
  constructor(private httpClient: HttpClient) {
    super(); //Esto es porque en el ctor padre esta vacio y no es necesario definir
    this.authStatus.subscribe(authStatus => { //Cada vez que el authStatus cambie de valor tambien se seteara en el localStorage
-     this.setItem('authStatus', authStatus);
+    if(authStatus.primarysid != null)
+      this.setItem('authStatus', authStatus);
    })
    this.authProvider = this.userAuthProvider;
   }

@@ -10,7 +10,7 @@ CREATE PROCEDURE [dbo].[GetTasksByNote]
 AS 
 BEGIN
  
- SELECT [Id] , [Name],[Description] ,[DateCreate], [Finished], [UserCreate],
+ SELECT [Id] , [Name],[Description] ,[DateCreate], [Finished], [UserCreate], [NoteId],
  COUNT(*) OVER() TotalRecords
  FROM [dbo].[Task]
  WHERE [NoteId] = @noteId

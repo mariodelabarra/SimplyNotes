@@ -30,6 +30,7 @@ namespace SimplyNotes.WebAPI.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Note note)
         {
+            note.DateCreate = DateTime.Now;
             if (!ModelState.IsValid) return BadRequest();
             return Ok(_logic.Insert(note));
         }
@@ -45,8 +46,11 @@ namespace SimplyNotes.WebAPI.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Delete([FromBody] Note note)
+        [Route("{id:int}")]
+        public IActionResult Delete(int id)
         {
+            Note note = _logic.GetById(id);
+
             if (note.Id > 0)
                 return Ok(_logic.Delete(note));
             return BadRequest();
