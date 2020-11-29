@@ -1,0 +1,15 @@
+#personal-title {
+    margin-bottom: 3em;
+}
+
+#personal-title h2{
+    margin: 0;
+}
+
+#personal-title hr{
+    background-color: lightgrey;
+    width: 10%;
+    height: 0.4em;
+    float: left;
+    border: 0;
+}

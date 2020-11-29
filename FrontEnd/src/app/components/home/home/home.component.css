@@ -7,6 +7,16 @@
     display: inline-block;
 }
 
+.title-icon-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.material-icons {
+    padding-right: 0.3em;
+}
+
 .div-button {
     float: right;
     margin-right: 2em;

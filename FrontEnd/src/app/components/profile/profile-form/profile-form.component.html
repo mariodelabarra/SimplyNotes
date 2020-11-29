@@ -1,0 +1,66 @@
+<div id="personal-title">
+    <h2>Personal Information</h2>
+    <hr/>
+</div>
+
+<div>
+    <form id="personal-form" [formGroup]="personalForm">
+
+        <div class="login-control-input">
+            <strong>Username</strong><br>
+            <mat-form-field class="login-form-field">
+                <mat-label>Username</mat-label>
+                <input matInput aria-label="username" formControlName="username"/>
+                <mat-error *ngIf="personalForm.get('username').hasError('required')">Username is required.</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="login-control-input">
+            <strong>First Name</strong><br>
+            <mat-form-field class="login-form-field">
+                <mat-label>First Name</mat-label>
+                <input matInput aria-label="firstName" formControlName="firstName"/>
+                <mat-error *ngIf="personalForm.get('firstName').hasError('required')">FirstName is required.</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="login-control-input">
+            <strong>Last Name</strong><br>
+            <mat-form-field class="login-form-field">
+                <mat-label>Last Name</mat-label>
+                <input matInput aria-label="lastName" formControlName="lastName"/>
+                <mat-error *ngIf="personalForm.get('lastName').hasError('required')">LastName is required.</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="login-control-input">
+            <strong>Email</strong><br>
+            <mat-form-field class="login-form-field">
+                <mat-label>Email</mat-label>
+                <input matInput aria-label="email" formControlName="email"/>
+                <mat-error *ngIf="personalForm.get('email').hasError('required')">Email is required.</mat-error>
+                <mat-error *ngIf="personalForm.get('email').hasError('email')">Email is not valid.</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="login-control-input">
+            <strong>Password</strong><br>
+            <mat-form-field class="login-form-field">
+                <mat-label>Password</mat-label>
+                <input matInput aria-label="password" formControlName="password"/>
+                <mat-error *ngIf="personalForm.get('password').hasError('required')">Email is required.</mat-error>
+            </mat-form-field>
+        </div>
+
+        <!-- <div class="login-control-input">
+            <mat-icon>email</mat-icon>
+            <mat-form-field class="login-form-field">
+                <mat-label>Birthday</mat-label>
+                <input matInput aria-label="Email" formControlName="email"/>
+                <mat-error *ngIf="personalForm.get('email').hasError('required')">Email is required.</mat-error>
+                <mat-error *ngIf="personalForm.get('email').hasError('email')">Email is not valid.</mat-error>
+            </mat-form-field>
+        </div> -->
+
+    </form>
+</div>

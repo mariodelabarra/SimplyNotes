@@ -4,7 +4,8 @@ import { Role } from '../auth/role.enum';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { catchError, map } from 'rxjs/operators';
-import * as jwt_decode from 'jwt-decode';
+// @ts-ignore
+import jwt_decode from 'jwt-decode';
 import { transformError } from '../common/common';
 import { CacheService } from './cache.service';
 
@@ -72,6 +73,7 @@ export class AuthService extends CacheService {
 
  private clearToken() {
    this.removeItem('jwt');
+   this.removeItem('user');
  }
 
  getAuthStatus(): IAuthStatus {

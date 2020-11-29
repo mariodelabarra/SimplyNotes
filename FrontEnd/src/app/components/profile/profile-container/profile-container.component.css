@@ -1,0 +1,35 @@
+.grid-container {
+    display: grid;
+    grid-template-rows: 90%;
+    grid-template-columns: 30% 65%;
+    grid-gap: 1em;
+    margin-bottom: 5em;
+}
+
+.grid-item1, .grid-item2{
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-top: 2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    height: 100%;
+}
+
+.grid-item1 {
+    margin-left: 3em;
+}
+
+.grid-item2 {
+    padding-left: 2em
+}
+
+.div-user-img {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.div-user-img button {
+    margin-top: 1em;
+    width: 70%;
+}
