@@ -11,7 +11,6 @@ namespace SimplyNotes.WebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
     public class UserController: Controller
     {
         private readonly IUserLogic _logic;
@@ -29,6 +28,7 @@ namespace SimplyNotes.WebAPI.Controllers
 
         [HttpPost]
         [Route("GetUserByEmail")]
+        [Authorize]
         public IActionResult GetUserByEmail([FromBody] User user)
         {
             if(user != null)
@@ -45,9 +45,10 @@ namespace SimplyNotes.WebAPI.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         public IActionResult Put([FromBody] User user)
         {
-            if (ModelState.IsValid && _logic.Update(user))
+            if (ModelState.IsValid && _logic.Update(user) >= 1)
             {
                 return Ok(new { Message = "The Board is Updated" });
             }
@@ -55,6 +56,7 @@ namespace SimplyNotes.WebAPI.Controllers
         }
 
         [HttpDelete]
+        [Authorize]
         public IActionResult Delete([FromBody] User user)
         {
             if (user.Id > 0)

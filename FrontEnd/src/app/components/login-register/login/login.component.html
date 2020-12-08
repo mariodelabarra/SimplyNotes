@@ -32,7 +32,10 @@
           <div *ngIf="loginError">
               <p class="login-error">{{loginError}}</p>
           </div>
-          <button mat-raised-button color="primary" [disabled]="loginForm.invalid">SIGN IN</button>
+          <button mat-raised-button [disabled]="loginForm.invalid">SIGN IN</button>
       </form>
+      <div id="register-button">
+          <button mat-raised-button color="primary" routerLink="register">REGISTER</button>
+      </div>
     </div>
 </div>

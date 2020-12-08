@@ -24,6 +24,7 @@ import { AuthGuard } from './guards/auth.guard';
 //Service
 import { UserService } from './services/user.service';
 import { TaskService } from './services/task.service';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,10 @@ import { TaskService } from './services/task.service';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthHttpInterceptor,
       multi: true
+    },
+    {
+      provide: MAT_DATE_LOCALE,
+      useValue: 'en-GB'
     }],
   bootstrap: [AppComponent]
 })

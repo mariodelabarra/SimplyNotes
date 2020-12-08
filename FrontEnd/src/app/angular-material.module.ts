@@ -15,6 +15,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [],
@@ -34,7 +39,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatDialogModule,
     MatMenuModule,
     ScrollingModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
+    MatSnackBarModule
   ],
   exports: [
     MatToolbarModule,
@@ -51,7 +60,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatDialogModule,
     MatMenuModule,
     ScrollingModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
+    MatSnackBarModule
   ]
 })
 export class AngularMaterialModule { }

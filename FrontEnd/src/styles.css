@@ -6,3 +6,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .modal-dialog {
     width: 400px;
 }
+
+.snack-success {
+    color: rgb(22, 197, 22);
+}
+
+.snack-success button {
+    color: white;
+}

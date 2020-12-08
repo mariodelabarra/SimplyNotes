@@ -42,15 +42,12 @@ export class LoginComponent extends CacheService implements OnInit {
     this.isVisible = true;
     this.authService.login(submittedForm.value.email, submittedForm.value.password).
         subscribe(authResponse => {
-          this.userService.getUserByEmail(user).subscribe(
-            resp => {
-              this.router.navigate(['dashboard/home']);
-              if(resp != null){
-                this.setItem('user', JSON.stringify(resp));
-              }
-            }
-          );
-        }, error => this.loginError = error);
+          this.router.navigate(['dashboard/home']);
+          
+        }, error => {
+          this.loginError = error;
+          this.isVisible = false;
+        });
   }
 
 }

@@ -9,7 +9,7 @@ namespace SimplyNotes.BusinessLogic.Interfaces
     {
         User GetById(int id);
         int Insert(User user);
-        bool Update(User user);
+        int Update(User user);
         bool Delete(User user);
         User ValidateUser(string email, string password);
         User GetUserByEmail(string email);

@@ -13,3 +13,20 @@
     float: left;
     border: 0;
 }
+
+#personal-form-grid {
+    display: grid;
+    grid-template-rows: 30%;
+    grid-template-columns: 50% 50%;
+    grid-gap: 1em;
+    margin-bottom: 3em;
+}
+
+.login-form-field {
+    width: 85%;
+  }
+  
+:host /deep/ .mat-form-field-wrapper{
+  width: 100%;
+  }
+

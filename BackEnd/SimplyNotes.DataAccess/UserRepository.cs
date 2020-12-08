@@ -40,5 +40,49 @@ namespace SimplyNotes.DataAccess
                                                commandType: System.Data.CommandType.StoredProcedure);
             }
         }
+
+        public int UpdateUser(User user)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@UserId", user.Id);
+            parameters.Add("@Username", user.Username);
+            parameters.Add("@FirstName", user.FirstName);
+            parameters.Add("@LastName", user.LastName);
+            parameters.Add("@Email", user.Email);
+            parameters.Add("@Password", user.Password);
+            parameters.Add("@Role", user.Role);
+            parameters.Add("@BirthDay", user.BirthDay);
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                return connection.Execute("dbo.UpdateUser", parameters, commandType: System.Data.CommandType.StoredProcedure);
+            }
+
+        }
+
+        public int CreateUser(User user)
+        {
+            try
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("@Username", user.Username);
+                parameters.Add("@FirstName", user.FirstName);
+                parameters.Add("@LastName", user.LastName);
+                parameters.Add("@Email", user.Email);
+                parameters.Add("@Password", user.Password);
+                parameters.Add("@Role", user.Role);
+                parameters.Add("@DateCreate", user.DateCreate);
+                parameters.Add("@BirthDay", user.BirthDay);
+
+                using(var connection = new SqlConnection(_connectionString))
+                {
+                    return connection.Execute("dbo.CreateUser", parameters, commandType: System.Data.CommandType.StoredProcedure);
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

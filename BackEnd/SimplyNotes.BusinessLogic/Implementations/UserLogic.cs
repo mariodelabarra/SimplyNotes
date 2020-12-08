@@ -31,12 +31,12 @@ namespace SimplyNotes.BusinessLogic.Implementations
 
         public int Insert(User user)
         {
-            return _unitOfWork.User.Insert(user);
+            return _unitOfWork.User.CreateUser(user);
         }
 
-        public bool Update(User user)
+        public int Update(User user)
         {
-            return _unitOfWork.User.Update(user);
+            return _unitOfWork.User.UpdateUser(user);
         }
 
         public User ValidateUser(string email, string password)
